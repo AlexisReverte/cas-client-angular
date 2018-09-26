@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "auth-cas-mod": {
+      "root": "projects/auth-cas-mod",
+      "sourceRoot": "projects/auth-cas-mod/src",
+      "projectType": "library",
+      "prefix": "cas",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/auth-cas-mod/tsconfig.lib.json",
+            "project": "projects/auth-cas-mod/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/auth-cas-mod/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth-cas-mod/src/test.ts",
+            "tsConfig": "projects/auth-cas-mod/tsconfig.spec.json",
+            "karmaConfig": "projects/auth-cas-mod/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/auth-cas-mod/tsconfig.lib.json",
+              "projects/auth-cas-mod/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "auth-cas"
