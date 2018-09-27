@@ -12,13 +12,13 @@ export class AuthCasModService {
 
   constructor(private xmlConvert: XmlConvertService, private authStorage: AuthStorageService, private http: HttpService) { }
   
-  
-  verificaLogin(): Promise<any> {    
+  verificaLogin(): Promise<any> {
     //Verifica se está autenticado, caso esteja valida o login, caso não esteja solicita o login.
-    if(!this.isAuthenticated()){ 
+    console.log(this.isAuthenticated());
+    if(!this.isAuthenticated()){
       this.openLogin()
     }
-    return this.validateLogin() 
+    return this.validateLogin()
   }
   
   validateLogin(): Promise<any> {
@@ -27,7 +27,7 @@ export class AuthCasModService {
           .doGetUrlXML(this.getUrlValidate())
           .subscribe(res => this.validation(resolve, reject, res), reject)
     });
-    return promise
+    return promise;
   }
 
   openLogin() {

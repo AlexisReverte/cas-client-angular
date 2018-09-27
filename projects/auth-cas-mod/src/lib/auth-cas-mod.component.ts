@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthCasModService } from './auth-cas-mod.service';
+// import { Routes, Router } from '@angular/router';
+import { AuthStorageService } from './auth-storage.service';
 
 @Component({
   selector: 'cas-auth-cas-mod',
@@ -12,11 +14,21 @@ import { AuthCasModService } from './auth-cas-mod.service';
 })
 export class AuthCasModComponent implements OnInit {
 
-  constructor(private auth: AuthCasModService) { }
+  constructor(private auth: AuthCasModService, private authStorage: AuthStorageService) { }
 
   ngOnInit() {
-    console.log('teste');
-    this.auth.verificaLogin().then(res => console.log(res))
+    setTimeout(()=> {
+      this.saveTicket();
+      this.auth.verificaLogin().then();
+    }, 5000)
   }
+
+  saveTicket() {
+    let ticket = window.location.search.replace('?ticket=', '')
+    if(ticket) {
+      this.authStorage.saveTicket(ticket)
+    }
+  }
+
 
 }
