@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environment';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import { Headers } from '@angular/http';
+// import 'rxjs/add/operator/map';
+// import { Headers } from '@angular/http';
 
 
 @Injectable()

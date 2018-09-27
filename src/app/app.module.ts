@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { AuthCasModModule } from 'auth-cas-mod';
-import { setTimeout } from 'timers';
 
 @NgModule({
   declarations: [

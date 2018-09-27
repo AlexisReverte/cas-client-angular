@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as xml2js from 'xml2js'
+import xml2js from 'xml2js'
 
 @Injectable()
 export class XmlConvertService {

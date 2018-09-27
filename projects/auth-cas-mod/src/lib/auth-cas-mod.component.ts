@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthCasModService } from './auth-cas-mod.service';
 
 @Component({
   selector: 'cas-auth-cas-mod',
@@ -11,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthCasModComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthCasModService) { }
 
   ngOnInit() {
+    console.log('teste');
+    this.auth.verificaLogin().then(res => console.log(res))
   }
 
 }
