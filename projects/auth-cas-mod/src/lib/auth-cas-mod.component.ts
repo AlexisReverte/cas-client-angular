@@ -17,10 +17,10 @@ export class AuthCasModComponent implements OnInit {
   constructor(private auth: AuthCasModService, private authStorage: AuthStorageService) { }
 
   ngOnInit() {
-    setTimeout(()=> {
+    // setTimeout(()=> {
       this.saveTicket();
       this.auth.verificaLogin().then();
-    }, 5000)
+    // }, 5000)
   }
 
   saveTicket() {

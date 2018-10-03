@@ -14,7 +14,6 @@ export class AuthCasModService {
   
   verificaLogin(): Promise<any> {
     //Verifica se está autenticado, caso esteja valida o login, caso não esteja solicita o login.
-    console.log(this.isAuthenticated());
     if(!this.isAuthenticated()){
       this.openLogin()
     }
