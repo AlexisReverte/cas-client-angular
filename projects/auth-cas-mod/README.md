@@ -34,6 +34,7 @@ Add the CAS module to the `app.module.ts`:
 
 ```json
 import { AuthCasModModule } from 'auth-cas-mod';
+import { environment } from '../environments/environment';
 ```
 
 Add imports:

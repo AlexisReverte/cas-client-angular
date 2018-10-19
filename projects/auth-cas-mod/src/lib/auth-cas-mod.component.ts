@@ -5,11 +5,7 @@ import { AuthStorageService } from './auth-storage.service';
 
 @Component({
   selector: 'cas-auth-cas-mod',
-  template: `
-    <p>
-      auth-cas-mod works!
-    </p>
-  `,
+  template: ``,
   styles: []
 })
 export class AuthCasModComponent implements OnInit {
@@ -18,13 +14,16 @@ export class AuthCasModComponent implements OnInit {
 
   ngOnInit() {
     // setTimeout(()=> {
-      this.saveTicket();
-      this.auth.verificaLogin().then();
+      if (!this.auth.isAuthenticated()) {
+        this.saveTicket();
+        this.auth.verificaLogin().then();
+      }
     // }, 5000)
   }
 
   saveTicket() {
     let ticket = window.location.search.replace('?ticket=', '')
+    
     if(ticket) {
       this.authStorage.saveTicket(ticket)
     }
