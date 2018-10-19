@@ -29,6 +29,19 @@ Add the following attributes to the environment files: (src/environments/environ
     cas_url: "<CAS_URL>", -- Example: https://mycas.com/cas
     cas_validate_url: "<CAS_VALIDATE_TICKET>" -- Example: https://mycas.com/cas/serviceValidate
 ```
+
+Add the CAS module to the `app.module.ts`:
+
+```json
+import { AuthCasModModule } from 'auth-cas-mod';
+```
+
+Add imports:
+
+```json
+AuthCasModModule.forRoot(environment)
+```
+
 Add the `cas-auth-cas-mod` component where you want the CAS to handle authentication, in our case we put it in the `app.component.html`:
 
 ```html
