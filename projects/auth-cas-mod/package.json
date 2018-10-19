@@ -1,6 +1,6 @@
 {
   "name": "auth-cas-mod",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description" : "Angular integration with CAS SSO",
   "homepage": "https://github.com/RicardoBorgesGO/cas-client-angular",
   "keywords": ["CAS", "SSO", "Angular"],
