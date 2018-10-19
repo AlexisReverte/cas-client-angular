@@ -1,4 +1,4 @@
-# AuthCasModule (Beta)
+# AuthCasModule
 
 This project it is a simple library from authenticate to CAS SSO from Angular.
 

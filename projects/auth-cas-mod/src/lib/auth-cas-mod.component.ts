@@ -30,5 +30,11 @@ export class AuthCasModComponent implements OnInit {
     }
   }
 
+  getLoginUnico() {
+    return this.authStorage.getLoginUnico();
+  }
 
+  getTicket() {
+    return this.authStorage.getTicket();
+  }
 }
