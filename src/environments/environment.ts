@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  app_url: "http://localhost:4200",
+  cas_url: "https://cas-homologacao.sistemas.ufg.br/cas",
+  cas_validate_url: "https://cas-homologacao.sistemas.ufg.br/cas/serviceValidate",
 };
 
 /*

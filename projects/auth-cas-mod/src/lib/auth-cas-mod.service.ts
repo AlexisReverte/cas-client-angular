@@ -1,16 +1,17 @@
 import { AuthStorageService } from './auth-storage.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
 import { XmlConvertService } from './xml-convert.service';
-import { environment } from '../environment';
+// import { environment } from '../environment';
+// import { environment } from '../../../../src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthCasModService {
 
-  constructor(private xmlConvert: XmlConvertService, private authStorage: AuthStorageService, private http: HttpService) { }
+  constructor(private xmlConvert: XmlConvertService, private authStorage: AuthStorageService, private http: HttpService, @Inject('env') private environment) { }
   
   verificaLogin(): Promise<any> {
     //Verifica se está autenticado, caso esteja valida o login, caso não esteja solicita o login.
@@ -49,7 +50,7 @@ export class AuthCasModService {
   
   logout() {
     this.authStorage.remove();
-    window.open(environment.cas_url + '/logout?service=' + environment.app_url, '_self')
+    window.open(this.environment.cas_url + '/logout?service=' + this.environment.app_url, '_self')
   }
   
   getTicket(): string {
@@ -57,11 +58,11 @@ export class AuthCasModService {
   }
 
   getUrlValidate(): string {
-    return environment.cas_url + '/serviceValidate?ticket=' + this.getTicket() + '&service=' + environment.app_url
+    return this.environment.cas_url + '/serviceValidate?ticket=' + this.getTicket() + '&service=' + this.environment.app_url
   }
   
   getUrlLogin(): string {
-    return environment.cas_url + '/login?locale=pt_BR&service='+environment.app_url
+    return this.environment.cas_url + '/login?locale=pt_BR&service='+ this.environment.app_url
   }
   
   isAuthenticated(): boolean {
