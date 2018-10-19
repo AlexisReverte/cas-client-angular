@@ -69,8 +69,8 @@ Add the `cas-auth-cas-mod` component where you want the CAS to handle authentica
 
 ### Get User Logged in
 
-To get logged in user use the AuthStorageService Service, using the methods:
+To get logged in user use the SessionStorage:
 ```json
-  getLoginUnico(): string -- Get user login
-  getTicket(): string -- Get ticket
+    window.sessionStorage.getItem("loginUser")
+    window.sessionStorage.getItem("ticketUser")
 ```
