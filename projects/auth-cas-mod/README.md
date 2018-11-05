@@ -16,7 +16,8 @@ Dependencies needed:
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "timers": "^0.1.1",
-    "events": "^3.0.0"
+    "events": "^3.0.0",
+    "stream": "^0.0.2"
   }
 ```
 
@@ -25,9 +26,9 @@ Dependencies needed:
 Add the following attributes to the environment files: (src/environments/environment.json):
 
 ```json
-    app_url: "<APP_URL>", -- Example: https://myapp.com
-    cas_url: "<CAS_URL>", -- Example: https://mycas.com/cas
-    cas_validate_url: "<CAS_VALIDATE_TICKET>" -- Example: https://mycas.com/cas/serviceValidate
+    app_url: '<APP_URL>', //Example: https://myapp.com
+    cas_url: '<CAS_URL>', //Example: https://mycas.com/cas
+    cas_validate_url: '<CAS_VALIDATE_TICKET>' //Example: https://mycas.com/cas/serviceValidate
 ```
 
 Add the CAS module to the `app.module.ts`:
@@ -71,6 +72,6 @@ Add the `cas-auth-cas-mod` component where you want the CAS to handle authentica
 
 To get logged in user use the SessionStorage:
 ```json
-    window.sessionStorage.getItem("loginUser")
-    window.sessionStorage.getItem("ticketUser")
+    window.sessionStorage.getItem('loginUser')
+    window.sessionStorage.getItem('ticketUser')
 ```
