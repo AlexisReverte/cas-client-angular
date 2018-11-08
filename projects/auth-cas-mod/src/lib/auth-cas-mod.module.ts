@@ -5,10 +5,12 @@ import { HttpService } from './http.service';
 import { AuthStorageService } from './auth-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthCasModService } from './auth-cas-mod.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   declarations: [AuthCasModComponent],
   exports: [AuthCasModComponent],

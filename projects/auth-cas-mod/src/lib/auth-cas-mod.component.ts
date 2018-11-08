@@ -5,20 +5,29 @@ import { AuthStorageService } from './auth-storage.service';
 
 @Component({
   selector: 'cas-auth-cas-mod',
-  template: ``,
-  styles: []
+  templateUrl: './auth-cas-mod.html',
+  styleUrls: ['./auth-cas-mod.css']
 })
 export class AuthCasModComponent implements OnInit {
 
   constructor(private auth: AuthCasModService, private authStorage: AuthStorageService) { }
+  isLoad: boolean = false;
 
   ngOnInit() {
     // setTimeout(()=> {
-      if (!this.auth.isAuthenticated()) {
+      if (!this.getLogin()) {
         this.saveTicket();
         this.auth.verificaLogin().then();
       }
-    // }, 5000)
+      
+      if (this.auth.isAuthenticated() && !this.getLogin()) {
+        setTimeout(()=> {
+          window.location.reload();
+        }, 5000);
+      } else {
+        this.isLoad = true;
+      }
+    // }, 3000)
   }
 
   saveTicket() {

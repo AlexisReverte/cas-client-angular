@@ -23,9 +23,11 @@ export class AuthCasModService {
   
   validateLogin(): Promise<any> {
     let promise = new Promise((resolve, reject) => {
+      setTimeout(()=> {
       this.http
           .doGetUrlXML(this.getUrlValidate())
           .subscribe(res => this.validation(resolve, reject, res), reject)
+        }, 3000)
     });
     return promise;
   }

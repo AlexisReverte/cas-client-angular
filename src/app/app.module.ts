@@ -23,7 +23,7 @@ const routes: Routes = [
     AuthCasModModule,
     AuthCasModModule.forRoot(environment),
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
