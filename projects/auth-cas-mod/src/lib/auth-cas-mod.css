@@ -15,6 +15,7 @@ body {
     position: fixed;
     text-align: center;
     font-weight: bold;
+    z-index: 1005;
 }
 
 .circular{
@@ -73,6 +74,6 @@ body {
     background: #fff;
     position: fixed;
     top: 0;
-    z-index: 10000;
+    z-index: 1000;
     /* opacity: 0.96; */
 }
