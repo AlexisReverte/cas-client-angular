@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   app_url: "http://localhost:4200",
-  cas_url: "https://cas-homologacao.sistemas.ufg.br/cas",
-  cas_validate_url: "https://cas-homologacao.sistemas.ufg.br/cas/serviceValidate",
+  cas_url: "https://cas-homologacao.ufg.br/cas",
+  cas_validate_url: "https://cas-homologacao.ufg.br/cas/serviceValidate",
 };
 
 /*
