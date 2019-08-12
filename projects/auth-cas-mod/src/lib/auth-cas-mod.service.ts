@@ -3,8 +3,6 @@ import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
 import { XmlConvertService } from './xml-convert.service';
-// import { environment } from '../environment';
-// import { environment } from '../../../../src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -79,4 +77,10 @@ export class AuthCasModService {
     return !this.isEmpty(obj)
   }
 
+  /**
+   * Get current user session
+   */
+  getUserSession() {
+    this.authStorage.getLoginUnico();
+  }
 }
