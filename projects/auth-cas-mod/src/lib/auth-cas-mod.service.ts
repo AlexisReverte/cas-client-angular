@@ -80,7 +80,7 @@ export class AuthCasModService {
   /**
    * Get current user session
    */
-  getUserSession() {
-    this.authStorage.getLoginUnico();
+  getUserSession():string {
+    return this.authStorage.getLoginUnico();
   }
 }
