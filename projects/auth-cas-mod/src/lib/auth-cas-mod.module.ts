@@ -14,7 +14,7 @@ import { LoadComponent } from './component/load/load.component';
     CommonModule
   ],
   declarations: [AuthCasModComponent, LoadComponent],
-  exports: [AuthCasModComponent],
+  exports: [AuthCasModComponent, LoadComponent],
   providers: [
     XmlConvertService,
     AuthStorageService,
