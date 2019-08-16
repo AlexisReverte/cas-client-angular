@@ -1,10 +1,8 @@
-<!-- <div *ngIf="!isLoad" class="await_bg"></div>
+<div *ngIf="isLoad" class="await_bg"></div>
 
-<div *ngIf="!isLoad" class="block_circular">
+<div *ngIf="isLoad" class="block_circular">
     <svg class="circular">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" stroke-miterlimit="10" />
     </svg>
     <div>Carregando...</div>
-</div> -->
-
-<cas-load [isLoad]="!isLoad"></cas-load>
+</div>

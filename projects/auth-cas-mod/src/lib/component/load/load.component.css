@@ -9,7 +9,7 @@ body {
     background-color: #eee;
 }
 
-/* .block_circular {
+.block_circular {
     top: 40%;
     left: 47%;
     position: fixed;
@@ -75,4 +75,5 @@ body {
     position: fixed;
     top: 0;
     z-index: 1000;
-} */
+    /* opacity: 0.96; */
+}

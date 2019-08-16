@@ -6,13 +6,14 @@ import { AuthStorageService } from './auth-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthCasModService } from './auth-cas-mod.service';
 import { CommonModule } from '@angular/common';
+import { LoadComponent } from './component/load/load.component';
 
 @NgModule({
   imports: [
     HttpClientModule,
     CommonModule
   ],
-  declarations: [AuthCasModComponent],
+  declarations: [AuthCasModComponent, LoadComponent],
   exports: [AuthCasModComponent],
   providers: [
     XmlConvertService,
