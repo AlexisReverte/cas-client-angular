@@ -15,27 +15,27 @@ export class AuthCasModComponent implements OnInit {
 
   ngOnInit() {
     // setTimeout(()=> {
-      if (!this.getLogin()) {
-        this.saveTicket();
-        this.auth.verificaLogin().then();
-      }
-      console.log(this.auth.isAuthenticated(), this.getLogin())
-      if (this.auth.isAuthenticated() && !this.getLogin()) {
-        setTimeout(()=> {
-          window.location.reload();
-        }, 5000);
-      } else if (!this.auth.isAuthenticated()) {
-        this.isLoad = false;
-      } else {
-        this.isLoad = true;
-      }
+    if (!this.getLogin()) {
+      this.saveTicket();
+      this.auth.verificaLogin().then();
+    }
+    console.log(this.auth.isAuthenticated(), this.getLogin())
+    if (this.auth.isAuthenticated() && !this.getLogin()) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+    } else if (!this.auth.isAuthenticated()) {
+      this.isLoad = false;
+    } else {
+      this.isLoad = true;
+    }
     // }, 3000)
   }
 
   saveTicket() {
     let ticket = window.location.search.replace('?ticket=', '')
-    
-    if(ticket) {
+
+    if (ticket) {
       this.authStorage.saveTicket(ticket)
     }
   }

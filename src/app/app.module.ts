@@ -1,14 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-// import { AuthCasModModule } from 'auth-cas-mod';
-
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './/app-routing.module';
-import { ExampleComponent } from './example/example.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthCasModModule } from 'projects/auth-cas-mod/src/public_api';
+// import { AuthCasModModule } from 'auth-cas-mod';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './/app-routing.module';
+import { AppComponent } from './app.component';
+import { ExampleComponent } from './example/example.component';
 
 const routes: Routes = [
   { path: 'example', component: ExampleComponent }
