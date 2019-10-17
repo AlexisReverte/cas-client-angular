@@ -19,7 +19,6 @@ export class AuthCasModComponent implements OnInit {
       this.saveTicket();
       this.auth.verificaLogin().then();
     }
-    console.log(this.auth.isAuthenticated(), this.getLogin())
     if (this.auth.isAuthenticated() && !this.getLogin()) {
       setTimeout(() => {
         window.location.reload();

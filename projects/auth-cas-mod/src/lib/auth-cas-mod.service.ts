@@ -44,7 +44,6 @@ export class AuthCasModService {
     if (sucesso) {
       this.authStorage.saveLoginUnico(sucesso['cas:user'])
     } else {
-      console.log(dados['cas:serviceResponse']['cas:authenticationFailure'])
       this.authStorage.remove();
       this.openLogin()
     }
