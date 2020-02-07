@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EmissorEventService } from './emissor-evento.service';
+import { User } from './models/user';
 
 const LOGIN_KEY = "loginUser"
 const COD_KEY = "codUser"
@@ -18,6 +19,14 @@ export class AuthStorageService {
 
     getLoginUnico(): string {
         return window.sessionStorage.getItem(LOGIN_KEY)
+    }
+
+    saveUsuario(user: User) {
+        window.sessionStorage.setItem(USER_TOKEN, JSON.stringify(user))
+    }
+
+    getUsuario(): User {
+        return JSON.parse(window.sessionStorage.getItem(USER_TOKEN));
     }
 
     saveCodUsuario(codUsuario: string) {

@@ -60,9 +60,11 @@ export class AuthCasModService {
 
   registraUsuario(loginUnico:string) {
     this.buscaDadosUsuarioAutenticado(loginUnico).subscribe(user => {
-      user.foto = null;
-      this.jwtService.generateJwt(user).subscribe(jwt => {
-        console.log(jwt);
+      let userThis = Object.assign({}, user);
+      userThis.foto = null;
+      this.jwtService.generateJwt(userThis).subscribe(jwt => {
+        user.jwt = jwt.data;
+        this.authStorage.saveUsuario(user);
       });
 
     });
@@ -103,6 +105,10 @@ export class AuthCasModService {
    */
   getUserSession(): string {
     return this.authStorage.getLoginUnico();
+  }
+
+  getUserSessionObj(): User {
+    return this.authStorage.getUsuario();
   }
 
   buscaDadosUsuarioAutenticado(login: string): Observable<User> {

@@ -11,5 +11,6 @@ export class AppComponent {
 
   constructor(private authCasModService:AuthCasModService) {
     this.authCasModService.registraUsuario(authCasModService.getUserSession());
+    console.log(authCasModService.getUserSessionObj());
   }
 }
