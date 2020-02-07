@@ -8,6 +8,7 @@ import { AuthStorageService } from './auth-storage.service';
 import { LoadComponent } from './component/load/load.component';
 import { HttpService } from './http.service';
 import { XmlConvertService } from './xml-convert.service';
+import { JwtService } from './services/jwt.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { XmlConvertService } from './xml-convert.service';
   providers: [
     XmlConvertService,
     AuthStorageService,
-    HttpService
+    HttpService,
+    JwtService
   ]
 })
 export class AuthCasModModule {

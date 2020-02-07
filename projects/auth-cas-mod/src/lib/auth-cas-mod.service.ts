@@ -2,18 +2,24 @@ import { Inject, Injectable } from '@angular/core';
 import { AuthStorageService } from './auth-storage.service';
 import { HttpService } from './http.service';
 import { XmlConvertService } from './xml-convert.service';
+import { Foto } from './models/foto';
+import { Observable, of } from 'rxjs';
+import { JwtService } from './services/jwt.service';
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthCasModService {
 
+  foto: Foto;
+
   constructor(
     private xmlConvert: XmlConvertService,
     private authStorage: AuthStorageService,
     private http: HttpService,
-    @Inject('env') private environment
-  ) { }
+    private jwtService: JwtService,
+    @Inject('env') private environment) { }
 
   verificaLogin(): Promise<any> {
     //Verifica se está autenticado, caso esteja valida o login, caso não esteja solicita o login.
@@ -42,12 +48,25 @@ export class AuthCasModService {
     let dados = this.xmlConvert.convertToJson(res)
     let sucesso = dados['cas:serviceResponse']['cas:authenticationSuccess']
     if (sucesso) {
-      this.authStorage.saveLoginUnico(sucesso['cas:user'])
+      let login = sucesso['cas:user'];
+      this.authStorage.saveLoginUnico(login);
+      this.registraUsuario(login);
     } else {
       this.authStorage.remove();
       this.openLogin()
     }
     resolve()
+  }
+
+  registraUsuario(loginUnico:string) {
+    this.buscaDadosUsuarioAutenticado(loginUnico).subscribe(user => {
+      user.foto = null;
+      this.jwtService.generateJwt(user).subscribe(jwt => {
+        console.log(jwt);
+      });
+
+    });
+
   }
 
   logout() {
@@ -85,4 +104,9 @@ export class AuthCasModService {
   getUserSession(): string {
     return this.authStorage.getLoginUnico();
   }
+
+  buscaDadosUsuarioAutenticado(login: string): Observable<User> {
+    return this.http.doGet(this.environment.commons_url.concat('/usuario/autenticado/').concat(login));
+  }
+
 }

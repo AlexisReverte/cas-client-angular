@@ -4,6 +4,7 @@ import { EmissorEventService } from './emissor-evento.service';
 const LOGIN_KEY = "loginUser"
 const COD_KEY = "codUser"
 const TICKET_KEY = "ticketUser"
+const USER_TOKEN = "userToken"
 
 @Injectable()
 export class AuthStorageService {
