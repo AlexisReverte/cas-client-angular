@@ -85,7 +85,7 @@ export class AuthCasModService {
   }
 
   getUrlLogin(): string {
-    return this.environment.cas_url + '/login?locale=pt_BR&service=' + this.environment.app_url
+    return this.environment.cas_url + '/login?service=' + this.environment.app_url
   }
 
   isAuthenticated(): boolean {
